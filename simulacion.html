@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="css/simulacion.css"/>
+    <title>Hackeo</title>
+    <script>
+        const hackMessages = [
+            "Iniciando secuencia de hackeo...",
+            "Llevamos a cabo un simulacro de hackeo para evaluar la seguridad cibernética...",
+            "Lamentablemente, muchos de nuestros datos personales fueron vulnerables y accedimos  a ellos con facilidad.",
+        ];
+        const tecleoSound = new Audio("tecla.mp3");
+        const alertSound = new Audio ("sonido.mp3");
+
+        function typeEffect(element, text, speed, callback) {
+            let i = 0;
+            if (tecleoSound) {
+                tecleoSound.currentTime = 0;
+                tecleoSound.play();
+            }
+            function typeWriter() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    if (tecleoSound) {
+                        tecleoSound.currentTime = 0;
+                        tecleoSound.play();
+                    }
+                    i++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    element.innerHTML += "<br>";
+                    if (callback) callback();
+                }
+            }
+            typeWriter();
+        }
+
+        function startHackScreen() {
+            const hackText = document.getElementById("hackText");
+            let delay = 0;
+            hackMessages.forEach((message, index) => {
+                setTimeout(() => {
+                    typeEffect(hackText, message, 50, () => {
+                        if (index === hackMessages.length - 1) {
+                            hackText.innerHTML += "Simulación completada. Redirigiendo al inicio...\n";
+                            setTimeout(() => {
+                                window.location.href = "index.html"; // Redirigir a index.html
+                                }, 3000); // Esperar 2 segundos antes de redirigir
+                        }
+
+                    });
+                }, delay);
+                delay += message.length * 50 + 1000;
+            });
+        }
+
+        function startHackPopups(callback) {
+            const popupMessages = [
+                "🔒 Alerta de seguridad: actividad inusual detectada.Click Aceptar para detener actividad.",
+                "⚠️ Error crítico: tu sistema ha sido comprometido..",
+                "⚠️ Descargando datos del dispositivo...",
+                "📂 Buscando archivos confidenciales...",
+                "🕵️‍♂️Advertencia: el sistema ha sido hackeado. Datos en riesgo...",
+                "🛑 ALERTA: Información privada comprometida...",
+                
+            ];
+
+            popupMessages.forEach((message, index) => {
+                setTimeout(() => {
+                    alert(message);
+                    if (index ===0){
+                        //iniciar sonido despues de la primera alerta
+                        alertSound.play();
+                    }
+                    if (index === popupMessages.length - 1) {
+                        alertSound.pause();
+                        // Mostrar el botón después de la última alerta
+                        document.getElementById("startButton").style.display = "block";
+                    }
+                }, index * 1000);
+            });
+        }
+
+        // Ejecutar las funciones al cargar la ventana
+        window.onload = () => {
+            startHackPopups(() => {
+                // No iniciar el hackeo aquí; se iniciará después de hacer clic en el botón
+            });
+        }
+
+        // Función para iniciar el sonido y ocultar el botón
+        function startSoundAndHideButton() {
+            const startButton = document.getElementById("startButton");
+            if (tecleoSound) {
+                tecleoSound.currentTime = 0;
+                tecleoSound.play(); // Reproducir sonido
+            }
+            startButton.style.display = "none"; // Ocultar botón
+            startHackScreen(); // Iniciar la simulación de hackeo
+        }
+    </script>
+</head>
+<body>
+    <div id="hackText"></div>
+    <button id="startButton" onclick="startSoundAndHideButton()">⚠️Tu sistema está en peligro.Dar clic para cerrar todo de inmediato.</button>
+</body>
+</html>

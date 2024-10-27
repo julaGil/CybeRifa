@@ -1,0 +1,217 @@
+
+/*------------------------------------*\
+	General
+\*------------------------------------*/
+body {
+	color:#969696;
+	font-size:16px;
+	overflow-x:hidden;
+	font-family: 'Cabin', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight:700;
+	color:#151515;
+	font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+	font-size:54px;
+}
+
+h2 {
+	font-size:36px;
+}
+
+h3 {
+	font-size:24px;
+}
+
+h4 {
+	font-size:16px;
+}
+
+a {
+	color:#151515;
+	-webkit-transition:0.2s color;
+	transition:0.2s color;
+}
+
+a:hover,
+a:focus{
+	color:#f36700;
+    text-decoration: none;
+    outline: none;
+}
+
+
+.white-text {
+	color:#FFF;
+}
+
+
+.section-header .title {
+	font-family: "Georgia", serif;
+	margin-top:0px;
+}
+
+.section-header .sub-title {
+	font-weight:400;
+	color: #179afe;
+}
+
+/* --- Background Imagen --- */
+.bg-image {
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background-position:center;
+	background-size:cover;
+	z-index:-1;
+}
+
+.bg-image.bg-parallax {
+	background-attachment:fixed;
+}
+
+.bg-image.overlay:after {
+	content:"";
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	opacity: 0.7;
+	background-color:#000;
+}
+
+/* --- Boton --- */
+.main-button {
+	display:inline-block;
+	padding:15px 30px;
+	border:none;
+	border-radius:40px;
+	background-color:#2680ff;
+	color:#FFF;
+	text-transform: uppercase;
+	font-weight: 700;
+	-webkit-transition:0.2s opacity;
+	transition:0.2s opacity;
+}
+.main-button:hover {
+	color:#FFF;
+	opacity:0.8;
+}
+
+/* --- Inputs --- */
+.input {
+	width: 100%;
+	height: 40px;
+	padding: 0px 10px;
+	border: 2px solid #ECECEC;
+	border-radius: 40px;
+	background: transparent;
+}
+
+textarea.input {
+	height: 160px;
+	padding: 10px;
+	border-radius: 20px;
+}
+
+/*------------------------------------*\
+	Logo
+\*------------------------------------*/
+#header {
+	position:absolute;
+	left:0;
+	right:0;
+	margin-top:15px;
+	z-index:22;
+}
+
+#header .logo img{
+	width: 40vh;
+}
+
+
+/* --- Mobile Nav --- */
+@media only screen and (max-width: 767px) {
+	#header {
+		position:absolute;
+		margin-top:0px;
+		-webkit-box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.1);
+		        box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.1);
+	}
+
+	#header:after {
+		content:"";
+		position: fixed;
+		left:0;
+		right:0;
+		bottom:0;
+		top:0;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: -1;
+		visibility:hidden;
+		opacity:0;
+		-webkit-transition: 0.2s all;
+		transition: 0.2s all;
+	}
+}
+
+
+/*------------------------------------*\
+	formulario 
+\*------------------------------------*/
+#reservation.section {
+	padding-bottom:0px;
+	margin-bottom: 20px;
+}
+
+#reservation .bg-image  {
+	height:75%;
+}
+
+.reserve-form {
+	padding: 30px 2% 30px;
+	background: rgba(21, 21, 21, 0.9);
+	height: auto;
+
+}
+
+.reserve-form  .form-group {
+	margin-bottom:30px;
+}
+
+.reserve-form  .form-group label {
+	color: #FFF;
+	margin-left: 10px;
+}
+
+.reserve-form .input {
+	border-color: rgba(255, 255, 255, 0.2);
+}
+@media only screen and (max-width: 767px) {
+	.reserve-form{
+		height: auto;
+	}
+}
+   /* botón "Iniciar" */
+#iniciar-container {
+	margin-top: 20px;
+}
+#btn-iniciar {
+	padding: 15px 30px;
+	font-size: 1.5em;
+}
+#iniciar-message {
+	margin-top: 10px;
+	color: red;
+	font-weight: bold;
+}
+
+
+

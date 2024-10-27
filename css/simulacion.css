@@ -1,0 +1,50 @@
+body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Asegúrate de que el body ocupe el 100% de la altura */
+}
+#hackText {
+    font-size: 2vw; 
+    white-space: pre-wrap;
+    border: 2px solid green;
+    padding: 2vh 2vw; /* Ajuste de padding */
+    width: 80vw; /* Usar ancho relativo */
+    height: 40vh; /* Usar altura relativa */
+    overflow-y: auto;
+    position: fixed;
+    top: 20vh; /* Usar altura relativa */
+    left: 10vw; /* Usar ancho relativo */
+    background-color: black;
+    z-index: 10;
+}
+#startButton {
+    display: none; /* Ocultar el botón inicialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3vw;
+    padding: 3vh 6vw; 
+    background-color: green;
+    color: black;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+@media (max-width: 600px) {
+    #hackText {
+        font-size: 4vw; 
+        padding: 5vh 5vw; 
+        width: 90vw;
+        height: 50vh; 
+    }
+    #startButton {
+        font-size: 4vw; 
+        padding: 4vh 8vw; 
+    }
+}
